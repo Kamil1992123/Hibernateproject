@@ -1,12 +1,13 @@
 package com.example.HIBERNATEproject.model;
 
+import com.example.HIBERNATEproject.model.forms.ReservationForm;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -21,6 +22,15 @@ public class ReservationModel {
 //    @Column (name = "firstname")
     private String firstname;
     private String lastname;
-    private Date date;
+    private LocalDate date;
     private String adres;
+
+    public ReservationModel (ReservationForm form){
+        firstname = form.getFirstname();
+        lastname = form.getLastname();
+//        date = form.getFormatedDate();
+        date = form.getFormatedDate();
+        adres = form.getAdres();
+
+    }
 }

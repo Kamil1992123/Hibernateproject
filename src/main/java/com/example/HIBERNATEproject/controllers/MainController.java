@@ -2,14 +2,18 @@ package com.example.HIBERNATEproject.controllers;
 
 
 import com.example.HIBERNATEproject.model.ReservationModel;
+import com.example.HIBERNATEproject.model.forms.ReservationForm;
 import com.example.HIBERNATEproject.model.repositories.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.sql.Date;
+import java.time.LocalDate;
+//import java.sql.Date;
 import java.util.Calendar;
+//import java.util.Date;
 
 @Controller
 public class MainController {
@@ -18,17 +22,17 @@ public class MainController {
     ReservationRepository reservationRepository;
 
     @GetMapping("/")
-    @ResponseBody
-    public String index(){
-        ReservationModel model = new ReservationModel();
+    public String index(Model model){
+     /*   ReservationModel model = new ReservationModel();
         model.setAdres("Warszawa");
-        model.setDate(new Date((Calendar.getInstance().getTimeInMillis())));
+        model.setDate(new LocalDate((Calendar.getInstance().getTimeInMillis())));
         model.setFirstname("Mordeczka");
-        model.setLastname("Ziomeczek");
+        model.setLastname("Ziomeczek");*/
 
-        reservationRepository.save(model);
+//        reservationRepository.save(model);
+        model.addAttribute("reservationForm", new ReservationForm());
 
-        return "Elo mordeczko";
+        return "index";
     }
 
 
