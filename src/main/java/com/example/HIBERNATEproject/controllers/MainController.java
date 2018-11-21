@@ -31,8 +31,8 @@ public class MainController {
      /*   ReservationModel model = new ReservationModel();
         model.setAdres("Warszawa");
         model.setDate(new LocalDate((Calendar.getInstance().getTimeInMillis())));
-        model.setFirstname("Mordeczka");
-        model.setLastname("Ziomeczek");*/
+        model.setFirstname("asd");
+        model.setLastname("dsa");*/
 
 //        reservationRepository.save(model);
         model.addAttribute("reservationForm", new ReservationForm());
